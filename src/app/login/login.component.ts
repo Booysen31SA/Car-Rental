@@ -17,10 +17,11 @@ export class LoginComponent implements OnInit {
   constructor(private apiService: ApiServiceService, private router: Router) { }
 
   ngOnInit() {
+    this.company = new Company_Name();
   }
 
   login() {
-
+    sessionStorage.setItem('Username', this.company.Username);
     Swal.fire({
       title: 'Loading....',
       timer: 3000,
