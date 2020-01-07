@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     LoginComponent,
     HomepageComponent,
     TopBarComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

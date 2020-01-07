@@ -1,0 +1,31 @@
+<app-top-bar></app-top-bar>
+<div id="container">
+  <div id="first">
+      <h2>My Notes
+        <button id="addBTN" title="Add Note" data-toggle="modal" data-target="#myModal">+</button>
+
+          <input type="text" placeholder="Search" aria-label="Search" id ="searchBar"
+          required
+          [(ngModel)] = "customer.firstName">
+          <span>
+            <button>Search</button>
+          </span>
+      </h2>
+  <ul class="customer" >
+    <li *ngFor="let customer of customerList | paginate: { itemsPerPage: 10, currentPage: p }"
+      [class.selected]="customer === SelectedCustomer"
+      (click)="onSelect(customer)">
+        <span class="badge">{{ customer.custNumber}}</span> {{ customer.firstName}}
+    </li>
+  </ul>
+  <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+  </div>
+
+  <div *ngIf="SelectedCustomer" class="body" id="second">
+      <h2 class = "detailsLabel">Details for {{ SelectedCustomer.firstName | uppercase}}</h2>
+
+
+    </div>
+
+  </div>
