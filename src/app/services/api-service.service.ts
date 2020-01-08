@@ -40,4 +40,15 @@ export class ApiServiceService {
       return this.showMenu;
     }
   }
+
+  // ================================================================
+  //                       Customers
+  // ================================================================
+  getAllCustomers() {
+    return this.http.get(this.url + '/customer/getall/0');
+  }
+
+  searchViaSurname(surname: string) {
+    return this.http.get(this.url + '/customer/searchsurname/' + surname);
+  }
 }

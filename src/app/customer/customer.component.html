@@ -1,31 +1,32 @@
 <app-top-bar></app-top-bar>
 <div id="container">
   <div id="first">
-      <h2>My Notes
+      <h2>Customers
         <button id="addBTN" title="Add Note" data-toggle="modal" data-target="#myModal">+</button>
 
           <input type="text" placeholder="Search" aria-label="Search" id ="searchBar"
           required
-          [(ngModel)] = "customer.firstName">
+          [(ngModel)] = "searchCustomer.surName">
           <span>
-            <button>Search</button>
+            <button (click)=searchViaSurname()>Search</button>
           </span>
       </h2>
+      <h2>Total Customers : {{ TotalCustomers }}</h2>
   <ul class="customer" >
-    <li *ngFor="let customer of customerList | paginate: { itemsPerPage: 10, currentPage: p }"
-      [class.selected]="customer === SelectedCustomer"
-      (click)="onSelect(customer)">
-        <span class="badge">{{ customer.custNumber}}</span> {{ customer.firstName}}
-    </li>
+    <ul class="nav sidebar-nav">
+      <li *ngFor="let customerList of customerList | paginate: { itemsPerPage: 10, currentPage: p }"
+      [class.selected]="customerList === SelectedCustomer"
+      (click)="onSelect(customerList)">
+        <span class="badge">{{ customerList.custNumber }}</span> {{ customerList.firstName }} {{ customerList.surName }}
+      </li>
+     </ul>
   </ul>
   <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
 
   </div>
-
-  <div *ngIf="SelectedCustomer" class="body" id="second">
-      <h2 class = "detailsLabel">Details for {{ SelectedCustomer.firstName | uppercase}}</h2>
-
-
-    </div>
-
   </div>
+    <!-- <li *ngFor="let customer of customerList | paginate: { itemsPerPage: 10, currentPage: p }"
+      [class.selected]="customer === SelectedCustomer"
+      (click)="onSelect(customer)">
+        <span class="badge">{{ customer.custNumber}}</span> {{ customer.firstName}}
+    </li> -->
