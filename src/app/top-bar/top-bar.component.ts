@@ -18,7 +18,6 @@ export class TopBarComponent implements OnInit {
   ngOnInit() {
     this.username = sessionStorage.getItem('Username');
     if (!sessionStorage.getItem('Username')) {
-      console.log('not working');
       this.router.navigateByUrl('/login');
     }
   }

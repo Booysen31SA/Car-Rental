@@ -12,7 +12,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     if (!sessionStorage.getItem('Username')) {
-      console.log('not working');
       this.router.navigateByUrl('/login');
     }
   }
