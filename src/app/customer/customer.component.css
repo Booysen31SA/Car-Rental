@@ -134,8 +134,8 @@ h2{
     width: 47%;
   }
   .delete{
-    border: 2px solid red;
+    border: 1px solid red;
   }
   .update{
-    border: 2px solid green;
+    border: 1px solid green;
   }
