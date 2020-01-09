@@ -36,14 +36,26 @@
     </div>
 
     <div class="detailsBody">
-      <label class ="spanBody">Customer's First Name:
+      <label class ="spanBody">Customer's First Name :
         <input type="text" id="fname" name="firstname" placeholder="First Name" [(ngModel)] = "SelectedCustomer.firstName">
       </label>
     </div>
 
     <div class="detailsBody">
-      <label class ="spanBody">Customer's Surname :
-        <input type="text" id="fname" name="firstname" placeholder="Surname" [(ngModel)] = "SelectedCustomer.surName">
+      <label class ="spanBody">Customer's Last Name :
+        <input type="text" id="lName" name="firstname" placeholder="Surname" [(ngModel)] = "SelectedCustomer.surName">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Phone Number :
+        <input type="text" id="PNumber" name="Phone_Number" placeholder="Phone Number" [(ngModel)] = "SelectedCustomer.Phone_Number">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Address :
+        <input type="text" id="address" name="address" placeholder="Address" [(ngModel)] = "SelectedCustomer.Address">
       </label>
     </div>
 
@@ -63,5 +75,10 @@
       <label class ="spanBody">Customer Last Rented :
         <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.LastRented }}
       </label>
+    </div>
+
+    <div>
+      <button class="actionBtn delete"  title="Delete Customer">Delete</button>
+      <button class="actionBtn update"  title="Update Customer">Update</button>
     </div>
   </div>

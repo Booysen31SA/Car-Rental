@@ -116,16 +116,26 @@ h2{
     background-color: #EEE;
     margin: 10px;
     padding: 4px 0 0 0;
-    height: 30px;
     border-radius: 4px;
     max-width: 500px;
   }
   input[type=text], select {
-    width: 57%;
+    width: 50%;
     /* padding: 12px 20px; */
     /* margin: 8px 0; */
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+  }
+  .actionBtn{
+    margin-right: 2%;
+    float: right;
+    width: 47%;
+  }
+  .delete{
+    border: 2px solid red;
+  }
+  .update{
+    border: 2px solid green;
   }
