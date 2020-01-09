@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { identifierModuleUrl } from '@angular/compiler';
+import { Customer } from '../models/Customer';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +51,15 @@ export class ApiServiceService {
 
   searchViaSurname(surname: string) {
     return this.http.get(this.url + '/customer/searchsurname/' + surname);
+  }
+
+  updateCustomer(customer: Customer) {
+    const body = JSON.stringify({
+      firstName : customer.firstName,
+      surName : customer.surName,
+      Phone_Number : customer.Phone_Number,
+      Address : customer.Address
+    });
+    return this.http.post(this.url + '/customer/' + customer.custNumber, body);
   }
 }
