@@ -62,4 +62,8 @@ export class ApiServiceService {
     });
     return this.http.post(this.url + '/customer/' + customer.custNumber, body);
   }
+
+  deleteCustomer(customer: number){
+    return this.http.delete(this.url + '/customer/delete/' + customer);
+  }
 }

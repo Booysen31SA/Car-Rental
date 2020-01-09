@@ -8,5 +8,5 @@ export class Customer {
   canRent: number;
   created: Date;
   LastRented: Date;
-  disabled: number;
+  disabled: any;
 }

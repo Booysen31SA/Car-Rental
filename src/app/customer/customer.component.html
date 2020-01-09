@@ -78,7 +78,11 @@
     </div>
 
     <div>
-      <button class="actionBtn delete"  title="Delete Customer">Delete</button>
+      <button class="actionBtn delete"  title="Delete Customer" (click) = "delete()">Delete</button>
       <button class="actionBtn update"  title="Update Customer" (click) = "update()">Update</button>
+    </div>
+
+    <div class = "deactivate" *ngIf="deactivated == true">
+      <Label>Deactivated</Label>
     </div>
   </div>

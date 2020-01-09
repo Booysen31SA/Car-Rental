@@ -17,6 +17,7 @@ export class CustomerComponent implements OnInit {
   TotalCustomers = 0;
   searchCustomer: Customer;
   SelectedCustomerCanRent: string;
+  deactivated: boolean;
 
   constructor(private api: ApiServiceService, private router: Router) { }
 
@@ -31,6 +32,13 @@ export class CustomerComponent implements OnInit {
 
   onSelect(customer: Customer) {
     this.SelectedCustomer = customer;
+    console.log(customer.disabled);
+
+    if (customer.disabled === '0') {
+      this.deactivated = false;
+    } else {
+      this.deactivated = true;
+    }
     if (customer.canRent) {
       this.SelectedCustomerCanRent = 'Yes';
     } else {
@@ -121,6 +129,44 @@ export class CustomerComponent implements OnInit {
           'Success!',
           data.message
         );
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
+      }
+    });
+  }
+
+  delete() {
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function () {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+
+    this.api.deleteCustomer(this.SelectedCustomer.custNumber) .subscribe((data: any) => {
+
+      if (data.success) {
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+        this.getAllCustomers();
       } else {
         Swal.close();
         Swal.fire(
