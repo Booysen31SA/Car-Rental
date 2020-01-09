@@ -100,3 +100,32 @@ h2{
   .my-pagination{
     text-align: center;
   }
+  @media only screen and (max-width: 1068px) {
+    .body {
+      margin-left: 35px;
+    }
+  }
+  .spanBody{
+    padding-right: 20px;
+    max-width: 500px;
+  }
+  .detailsBody{
+    margin-left: 50px;
+    /* position: relative; */
+    left: 0;
+    background-color: #EEE;
+    margin: 10px;
+    padding: 4px 0 0 0;
+    height: 30px;
+    border-radius: 4px;
+    max-width: 500px;
+  }
+  input[type=text], select {
+    width: 57%;
+    /* padding: 12px 20px; */
+    /* margin: 8px 0; */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }

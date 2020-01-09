@@ -25,8 +25,43 @@
 
   </div>
   </div>
-    <!-- <li *ngFor="let customer of customerList | paginate: { itemsPerPage: 10, currentPage: p }"
-      [class.selected]="customer === SelectedCustomer"
-      (click)="onSelect(customer)">
-        <span class="badge">{{ customer.custNumber}}</span> {{ customer.firstName}}
-    </li> -->
+
+  <div *ngIf="SelectedCustomer" class="body" id="second">
+    <h2 class = "detailsLabel">Details for {{ SelectedCustomer.firstName }} {{ SelectedCustomer.surName }}</h2>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer's ID:
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.custNumber }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer's First Name:
+        <input type="text" id="fname" name="firstname" placeholder="First Name" [(ngModel)] = "SelectedCustomer.firstName">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer's Surname :
+        <input type="text" id="fname" name="firstname" placeholder="Surname" [(ngModel)] = "SelectedCustomer.surName">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Can customer rent :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomerCanRent }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Created on :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.created }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Last Rented :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.LastRented }}
+      </label>
+    </div>
+  </div>

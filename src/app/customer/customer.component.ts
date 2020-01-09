@@ -15,6 +15,7 @@ export class CustomerComponent implements OnInit {
   SelectedCustomer: Customer;
   TotalCustomers = 0;
   searchCustomer: Customer;
+  SelectedCustomerCanRent: string;
 
   constructor(private api: ApiServiceService, private router: Router) { }
 
@@ -29,6 +30,11 @@ export class CustomerComponent implements OnInit {
 
   onSelect(customer: Customer) {
     this.SelectedCustomer = customer;
+    if (customer.canRent) {
+      this.SelectedCustomerCanRent = 'Yes';
+    } else {
+      this.SelectedCustomerCanRent = 'No';
+    }
   }
   getAllCustomers() {
     this.api.getAllCustomers() .subscribe((data: any) => {
