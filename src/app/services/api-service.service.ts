@@ -76,4 +76,11 @@ export class ApiServiceService {
     });
     return this.http.post(this.url + '/customer', body);
   }
+
+  // ================================================================
+  //                       Vehicle
+  // ================================================================
+  readByVehicleType($disabled: number) {
+    return this.http.get(this.url + '/vehicleCategories/getall/' + $disabled);
+  }
 }

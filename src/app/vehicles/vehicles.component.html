@@ -1,0 +1,131 @@
+<app-top-bar></app-top-bar>
+<div id="container">
+  <div id="first">
+      <h2>Vehicles
+        <button id="addBTN" title="Add Note" data-toggle="modal" data-target="#myModal">+</button>
+
+          <input type="text" placeholder="Search" aria-label="Search" id ="searchBar"
+          required
+          [(ngModel)] = "searchVehicle.make">
+          <span>
+            <button >Search</button>
+          </span>
+      </h2>
+      <h2>Total Vehicles : {{ TotalVehicles }}</h2>
+  <ul class="vehicle" >
+    <ul class="nav sidebar-nav">
+      <li *ngFor="let vehicleList of vehicleList | paginate: { itemsPerPage: 10, currentPage: p }"
+      [class.selected]="vehicleList === SelectedVehicle"
+      >
+        <span class="badge">{{ vehicleList.vehNumber }}</span> {{ vehicleList.make }}
+      </li>
+     </ul>
+  </ul>
+  <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+  </div>
+  </div>
+
+  <div *ngIf="SelectedVehicle" class="body" id="second">
+    <h2 class = "detailsLabel">Details for {{ SelectedVehicle.make }} </h2>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicles's ID:
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.vehNumber }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicles make :
+        <input type="text" id="fname" name="firstname" placeholder="First Name" [(ngModel)] = "SelectedVehicle.make">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicles Category :
+        <input type="text" id="lName" name="firstname" placeholder="Surname" [(ngModel)] = "SelectedVehicle.category">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicles Rental Price :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.rentalPrice }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Can Vehicel be rented :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicleCanRent }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">vehicle Created on :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.created }}
+      </label>
+    </div>
+
+    <div>
+      <button class="actionBtn delete"  title="Delete Vehicle" >Delete</button>
+      <button class="actionBtn update"  title="Update Vehicle" >Update</button>
+    </div>
+
+    <div class = "deactivate" *ngIf="deactivated == true">
+      <Label>Deactivated</Label>
+    </div>
+  </div>
+
+
+  <!--Pop up Model-->
+  <div class="modal" id="myModal" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!--The header-->
+        <div class="modal-header">
+          <h4 class="modal-title">Adding Vehicle to list!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+         <!--The header-->
+
+         <!-- Modal body -->
+         <div class="modal-body">
+           <form>
+
+             <div class="form-group">
+               <label for="make" class="col-form-label">Vehicle make : </label><br>
+               <input type="text" class="form-control" id="make"
+               required
+               [(ngModel)] = createdVehicle.make name = "make"
+               style="width: 100%;">
+             </div>
+
+             <div class="form-group">
+              <div class="dropdown">
+                <button class="dropbtn"> {{ SelectedDropDown }}</button>
+                <div class="dropdown-content">
+                  <ul>
+                    <li *ngFor="let categoryList of categoryList"
+                    [class.selected]="categoryList === s"
+                    value = s
+                    (click) = onselect(categoryList)>
+                    <span class="spans">{{ categoryList }}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+           </form>
+         </div>
+         <!-- Modal body -->
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-primary"  data-dismiss="modal">Save Changes</button>
+         </div>
+         <!-- Modal footer -->
+      </div>
+    </div>
+  </div>

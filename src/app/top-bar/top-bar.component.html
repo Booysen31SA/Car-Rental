@@ -13,11 +13,11 @@
           <a href="#" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Dashboard</a>
           <a href="#" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Car Rental</a>
           <a href="/customer" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Customer</a>
-          <a href="#" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Vehicle</a>
+          <a href="/vehicle" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Vehicle</a>
       </div>
       <div class="navbar-nav ml-auto">
         <div class="dropdown">
-          <button class="dropbtn">Welcome {{ username | uppercase }}</button>
+          <button class="dropbtn">Welcome {{ username | uppercase }} <span class="caret"></span></button>
           <div class="dropdown-content">
           <a href="/profile">Profile</a>
           <hr>
