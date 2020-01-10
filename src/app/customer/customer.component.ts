@@ -178,4 +178,43 @@ export class CustomerComponent implements OnInit {
       }
     });
   }
+
+  create() {
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function () {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+
+    this.api.createCustomer(this.createdCustomer) .subscribe((data: any) => {
+      this.getAllCustomers();
+      if (data.success) {
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+        this.createdCustomer = null;
+        this.createdCustomer = new Customer();
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
+      }
+    });
+  }
 }

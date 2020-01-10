@@ -63,7 +63,17 @@ export class ApiServiceService {
     return this.http.post(this.url + '/customer/' + customer.custNumber, body);
   }
 
-  deleteCustomer(customer: number){
+  deleteCustomer(customer: number) {
     return this.http.delete(this.url + '/customer/delete/' + customer);
+  }
+
+  createCustomer(customer: Customer) {
+    const body = JSON.stringify({
+      firstName : customer.firstName,
+      surName : customer.surName,
+      Phone_Number : customer.Phone_Number,
+      Address : customer.Address
+    });
+    return this.http.post(this.url + '/customer', body);
   }
 }
