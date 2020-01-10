@@ -18,12 +18,14 @@ export class CustomerComponent implements OnInit {
   searchCustomer: Customer;
   SelectedCustomerCanRent: string;
   deactivated: boolean;
+  createdCustomer: Customer;
 
   constructor(private api: ApiServiceService, private router: Router) { }
 
   ngOnInit() {
     this.customer = new Customer();
     this.searchCustomer = new Customer();
+    this.createdCustomer = new Customer();
     this. getAllCustomers();
     if (!sessionStorage.getItem('Username')) {
       this.router.navigateByUrl('/login');
@@ -50,7 +52,7 @@ export class CustomerComponent implements OnInit {
       title: 'Loading....',
       timer: 3000,
       // tslint:disable-next-line: object-literal-shorthand
-      onOpen: function () {
+      onOpen: function() {
         Swal.showLoading();
       }
     }).then(
@@ -76,7 +78,7 @@ export class CustomerComponent implements OnInit {
       title: 'Loading....',
       timer: 3000,
       // tslint:disable-next-line: object-literal-shorthand
-      onOpen: function () {
+      onOpen: function() {
         Swal.showLoading();
       }
     }).then(
@@ -159,14 +161,14 @@ export class CustomerComponent implements OnInit {
     );
 
     this.api.deleteCustomer(this.SelectedCustomer.custNumber) .subscribe((data: any) => {
-
+      this.getAllCustomers();
       if (data.success) {
+        this.SelectedCustomer = null;
         Swal.close();
         Swal.fire(
           'Success!',
           data.message
         );
-        this.getAllCustomers();
       } else {
         Swal.close();
         Swal.fire(
