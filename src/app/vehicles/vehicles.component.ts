@@ -32,11 +32,11 @@ export class VehiclesComponent implements OnInit {
     this.searchVehicle = new Vehicle();
     this.createdVehicle = new Vehicle();
     this.SelectedDropDown = 'Please select Category';
-    console.log(this.SelectedDropDown);
     if (!sessionStorage.getItem('Username')) {
       this.router.navigateByUrl('/login');
     }
     this.readByVehicleType();
+    this.getAllVehicles();
   }
 
   readByVehicleType() {
@@ -54,4 +54,26 @@ export class VehiclesComponent implements OnInit {
     this.SelectedDropDown = a;
   }
 
+  onSelectVehicle(vehicle: Vehicle) {
+    this.SelectedVehicle = vehicle;
+
+    if (vehicle.disabled === '0') {
+      this.deactivated = false;
+    } else {
+      this.deactivated = true;
+    }
+    if (vehicle.availableForRent) {
+      this.SelectedVehicleCanRent = 'Yes';
+    } else {
+      this.SelectedVehicleCanRent = 'No';
+    }
+  }
+
+  getAllVehicles() {
+    this.api.getAllVehicles(0) .subscribe((data: any) => {
+      if (data.success) {
+        this.vehicleList = data.results;
+      }
+    });
+  }
 }

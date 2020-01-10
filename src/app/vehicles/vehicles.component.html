@@ -16,7 +16,7 @@
     <ul class="nav sidebar-nav">
       <li *ngFor="let vehicleList of vehicleList | paginate: { itemsPerPage: 10, currentPage: p }"
       [class.selected]="vehicleList === SelectedVehicle"
-      >
+      (click)="onSelectVehicle(vehicleList)">
         <span class="badge">{{ vehicleList.vehNumber }}</span> {{ vehicleList.make }}
       </li>
      </ul>

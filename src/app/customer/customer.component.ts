@@ -34,7 +34,6 @@ export class CustomerComponent implements OnInit {
 
   onSelect(customer: Customer) {
     this.SelectedCustomer = customer;
-    console.log(customer.disabled);
 
     if (customer.disabled === '0') {
       this.deactivated = false;
