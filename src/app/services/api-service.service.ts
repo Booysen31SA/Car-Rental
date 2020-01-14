@@ -108,7 +108,25 @@ export class ApiServiceService {
   createVehicle(vehicle: Vehicle) {
     const body = JSON.stringify({
       make: vehicle.make,
-      category: vehicle.category
+      model: vehicle.model,
+      release_date: vehicle.release_date,
+      category: vehicle.category,
+      rentalPrice: vehicle.rentalPrice,
+      zero_Hundred: vehicle.zero_Hundred,
+      Transaction_Control: vehicle.Transaction_Control,
+      fuel_capacity: vehicle.fuel_capacity,
+      fuel_supply: vehicle.fuel_supply,
+      fuel_type: vehicle.fuel_type,
+      power: vehicle.power,
+      Top_speed: vehicle.Top_speed,
+      torque: vehicle.torque,
+      Aspiration: vehicle.Aspiration,
+      capacity: vehicle.capacity,
+      cylinders: vehicle.cylinders,
+      fuel_injection: vehicle.fuel_injection,
+      gearbox: vehicle.gearbox,
+      hybrid_clutchless: vehicle.hybrid_clutchless,
+      manual_automatic: vehicle.manual_automatic
     });
     return this.http.post(this.url + '/vehicle', body);
   }

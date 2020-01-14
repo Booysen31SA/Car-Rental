@@ -24,6 +24,8 @@ export class VehiclesComponent implements OnInit {
   SelectedDropDown: string;
   createdSelectedDropDown: string;
   categoryList = [];
+  s: string;
+  manual_automatic: string;
 
   constructor(private api: ApiServiceService, private router: Router) { }
 
@@ -31,7 +33,6 @@ export class VehiclesComponent implements OnInit {
     this.vehicle = new Vehicle();
     this.searchVehicle = new Vehicle();
     this.createdVehicle = new Vehicle();
-    this.SelectedDropDown = 'Please select Category';
     if (!sessionStorage.getItem('Username')) {
       this.router.navigateByUrl('/login');
     }
@@ -73,6 +74,18 @@ export class VehiclesComponent implements OnInit {
     }
   }
 
+  autoManSelect(answer: string) {
+    this.createdVehicle.manual_automatic = answer;
+  }
+  hybridClutchless(answer: string) {
+    this.createdVehicle.hybrid_clutchless = answer;
+  }
+  fuel_injection(answer: string) {
+    this.createdVehicle.fuel_injection = answer;
+  }
+  Transaction_Control(answer: string) {
+    this.createdVehicle.Transaction_Control = answer;
+  }
   getAllVehicles() {
     this.api.getAllVehicles(0) .subscribe((data: any) => {
       if (data.success) {
@@ -188,7 +201,6 @@ export class VehiclesComponent implements OnInit {
           'Failed!',
            data.message
         );
-        this.createdVehicle.make = null;
       }
     });
   }
