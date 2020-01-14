@@ -173,7 +173,6 @@ export class VehiclesComponent implements OnInit {
         }
       }
     );
-
     this.api.createVehicle(this.createdVehicle) .subscribe(( data: any) => {
       if (data.success) {
         this.getAllVehicles();
@@ -182,12 +181,14 @@ export class VehiclesComponent implements OnInit {
           'Success!',
           data.message
         );
+        this.createdVehicle.make = null;
       } else {
         Swal.close();
         Swal.fire(
           'Failed!',
            data.message
         );
+        this.createdVehicle.make = null;
       }
     });
   }
