@@ -100,4 +100,8 @@ export class ApiServiceService {
     });
     return this.http.post(this.url + '/vehicle/' + vehicle.vehNumber, body);
   }
+
+  deleteVehicle(vehicle: Vehicle) {
+    return this.http.delete(this.url + '/vehicle/delete/' + vehicle.vehNumber);
+  }
 }
