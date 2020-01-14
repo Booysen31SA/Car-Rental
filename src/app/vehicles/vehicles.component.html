@@ -79,7 +79,7 @@
 
     <div>
       <button class="actionBtn delete"  title="Delete Vehicle" >Delete</button>
-      <button class="actionBtn update"  title="Update Vehicle" >Update</button>
+      <button class="actionBtn update"  title="Update Vehicle" (click)="updateVehicle()">Update</button>
     </div>
 
     <div class = "deactivate" *ngIf="deactivated == true">

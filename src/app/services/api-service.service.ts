@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Customer } from '../models/Customer';
+import { Vehicle } from '../models/Vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -89,5 +90,14 @@ export class ApiServiceService {
   // ================================================================
   getAllVehicles($disabled: number) {
     return this.http.get(this.url + '/vehicle/getAll/' + $disabled);
+  }
+
+  updateVehicle(vehicle: Vehicle) {
+    const body = JSON.stringify({
+      vehNumber : vehicle.vehNumber,
+      make: vehicle.make,
+      category: vehicle.category
+    });
+    return this.http.post(this.url + '/vehicle/' + vehicle.vehNumber, body);
   }
 }

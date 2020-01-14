@@ -54,8 +54,9 @@ export class VehiclesComponent implements OnInit {
     this.SelectedDropDown = a;
   }
 
-  createOnSelect(a: any){
+  createOnSelect(a: any) {
     this.createdSelectedDropDown = a;
+    this.SelectedVehicle.category = a;
   }
   onSelectVehicle(vehicle: Vehicle) {
     this.SelectedVehicle = vehicle;
@@ -76,6 +77,43 @@ export class VehiclesComponent implements OnInit {
     this.api.getAllVehicles(0) .subscribe((data: any) => {
       if (data.success) {
         this.vehicleList = data.results;
+      }
+    });
+  }
+
+  updateVehicle() {
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function () {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+
+    this.api.updateVehicle(this.SelectedVehicle) .subscribe(( data: any) => {
+
+      if (data.success) {
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
       }
     });
   }
