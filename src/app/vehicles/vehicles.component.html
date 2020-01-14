@@ -74,7 +74,7 @@
     </div>
 
     <div class="detailsBody">
-      <label class ="spanBody">vehicle Created on :
+      <label class ="spanBody">Vehicle Added on :
         <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.created }}
       </label>
     </div>
@@ -93,19 +93,19 @@
     </div>
 
     <div class="detailsBody">
-      <label class ="spanBody">fuel capacity :
+      <label class ="spanBody">Fuel capacity :
         <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_capacity }}
       </label>
     </div>
 
     <div class="detailsBody">
-      <label class ="spanBody">fuel supply :
+      <label class ="spanBody">Fuel supply :
         <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_supply }}
       </label>
     </div>
 
     <div class="detailsBody">
-      <label class ="spanBody">fuel type :
+      <label class ="spanBody">Fuel type :
         <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_type }}
       </label>
     </div>
@@ -322,7 +322,7 @@
             </div>
 
             <div class="form-group">
-              <label for="capacity" class="col-form-label">capacity : </label><br>
+              <label for="capacity" class="col-form-label">Capacity : </label><br>
               <input type="text" class="form-control" id="capacity"
               required
               [(ngModel)] = createdVehicle.capacity name = "capacity"
@@ -331,7 +331,7 @@
             </div>
 
             <div class="form-group">
-              <label for="cylinders" class="col-form-label">cylinders : </label><br>
+              <label for="cylinders" class="col-form-label">Cylinders : </label><br>
               <input type="text" class="form-control" id="cylinders"
               required
               [(ngModel)] = createdVehicle.cylinders name = "cylinders"
@@ -340,7 +340,7 @@
             </div>
 
             <div class="form-group">
-              <label for="fuel_injection" class="col-form-label">	fuel_injection : </label><br>
+              <label for="fuel_injection" class="col-form-label">	Fuel_injection : </label><br>
               <div class="form-group">
                 <div ngbDropdown class="d-inline-block">
                   <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>{{ createdVehicle.fuel_injection }}</button>
@@ -354,7 +354,7 @@
 
 
             <div class="form-group">
-              <label for="gearbox" class="col-form-label">gearbox : </label><br>
+              <label for="gearbox" class="col-form-label">Gearbox : </label><br>
               <input type="text" class="form-control" id="gearbox"
               required
               [(ngModel)] = createdVehicle.gearbox name = "gearbox"
@@ -363,7 +363,7 @@
             </div>
 
             <div class="form-group">
-              <label for="hybrid_clutchless" class="col-form-label">hybrid/clutchless : </label><br>
+              <label for="hybrid_clutchless" class="col-form-label">Hybrid/Clutchless : </label><br>
               <div class="form-group">
                 <div ngbDropdown class="d-inline-block">
                   <button class="btn btn-outline-primary" id="dropdownBasic4" ngbDropdownToggle>{{ createdVehicle.hybrid_clutchless }}</button>
