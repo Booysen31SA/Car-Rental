@@ -22,7 +22,7 @@ export class VehiclesComponent implements OnInit {
   createdVehicle: Vehicle;
 
   SelectedDropDown: string;
-  s: string;
+  createdSelectedDropDown: string;
   categoryList = [];
 
   constructor(private api: ApiServiceService, private router: Router) { }
@@ -54,9 +54,12 @@ export class VehiclesComponent implements OnInit {
     this.SelectedDropDown = a;
   }
 
+  createOnSelect(a: any){
+    this.createdSelectedDropDown = a;
+  }
   onSelectVehicle(vehicle: Vehicle) {
     this.SelectedVehicle = vehicle;
-
+    this.createdSelectedDropDown = vehicle.category;
     if (vehicle.disabled === '0') {
       this.deactivated = false;
     } else {

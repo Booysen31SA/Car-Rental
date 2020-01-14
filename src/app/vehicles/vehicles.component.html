@@ -43,7 +43,19 @@
 
     <div class="detailsBody">
       <label class ="spanBody">Vehicles Category :
-        <input type="text" id="lName" name="firstname" placeholder="Surname" [(ngModel)] = "SelectedVehicle.category">
+        <div class="dropdown">
+          <button class="dropbtn"> {{ createdSelectedDropDown }}</button>
+          <div class="dropdown-content">
+            <ul>
+              <li *ngFor="let categoryList of categoryList"
+              [class.selected]="categoryList === createdSelectedDropDown"
+              value = s
+              (click) = createOnSelect(categoryList)>
+              <span class="spans">{{ categoryList }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </label>
     </div>
 
