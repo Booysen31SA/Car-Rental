@@ -104,4 +104,12 @@ export class ApiServiceService {
   deleteVehicle(vehicle: Vehicle) {
     return this.http.delete(this.url + '/vehicle/delete/' + vehicle.vehNumber);
   }
+
+  createVehicle(vehicle: Vehicle) {
+    const body = JSON.stringify({
+      make: vehicle.make,
+      category: vehicle.category
+    });
+    return this.http.post(this.url + '/vehicle', body);
+  }
 }

@@ -154,4 +154,41 @@ export class VehiclesComponent implements OnInit {
       }
     });
   }
+
+  createVehicle() {
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function () {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+
+    this.api.createVehicle(this.createdVehicle) .subscribe(( data: any) => {
+      if (data.success) {
+        this.getAllVehicles();
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
+      }
+    });
+  }
 }
