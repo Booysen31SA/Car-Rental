@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <a (click)="hamburgerChange()" class="navbar-brand">
+    <div class="{{showhamburgerIconRead ? 'nav-icon' : 'nav-icon2' }}">
+      <div></div>
+    </div>
+  </a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav">
+          <a href="#" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Dashboard</a>
+          <a href="/rental" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Car Rental</a>
+          <a href="/customer" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Customer</a>
+          <a href="/vehicle" class="nav-item nav-link  {{ showMenu ? 'noShow' : 'show' }}">Vehicle</a>
+      </div>
+      <div class="navbar-nav ml-auto">
+        <div class="dropdown">
+          <button class="dropbtn">Welcome {{ username | uppercase }} <span class="caret"></span></button>
+          <div class="dropdown-content">
+          <a href="/profile">Profile</a>
+          <hr>
+          <a (click)="Logout()">Logout</a>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</nav>

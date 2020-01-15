@@ -1,0 +1,150 @@
+h2{
+  margin-left: 50px;
+}
+#container{
+  width: 100%;
+  /* background-color: #ffcc33; */
+}
+#first {
+  float: left;
+  width: 550px;
+}
+#addBTN{
+  /* float: right; */
+  margin-top: 0px;
+  /* border-radius: 50%; */
+  }
+  button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+  }
+  #searchBar{
+    width: 30%;
+    margin-left: 20px;
+    height: 15%;
+  }
+
+  .customer {
+    /* margin: 0 0 2em 0; */
+    list-style-type: none;
+    padding: 0;
+    width: 500px;
+    margin-left: 40px;
+  }
+  .customer li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: 10px;
+    padding: 4px 0 0 0;
+    height: 30px;
+    border-radius: 4px;
+    width: 500px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 20px;
+    list-style: none;
+    background-color: #f8f9fa!important;
+  }
+  .customer li:hover {
+    background: skyblue !important;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* left: 50px; */
+  }
+  .customer li.selected {
+    background-color: #CFD8DC;
+    color: skyblue;
+  }
+  .customer li.selected:hover {
+    background-color: #BBD8DC;
+    color: skyblue;
+  }
+  .customer .badge {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color:#405061;
+    line-height: 10px;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    height: 30px;
+    width: 100px;
+    margin-right: 10px;
+    border-radius: 4px 0 0 4px;
+    /* overflow:hidden; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  #second {
+    float: left;
+    /* background-color: green; */
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .detailsLabel{
+    margin-left: 10px;
+  }
+  .my-pagination{
+    text-align: center;
+  }
+  @media only screen and (max-width: 1068px) {
+    .body {
+      margin-left: 35px;
+    }
+  }
+  .spanBody{
+    padding-right: 20px;
+    max-width: 500px;
+  }
+  .detailsBody{
+    margin-left: 50px;
+    /* position: relative; */
+    left: 0;
+    background-color: #EEE;
+    margin: 10px;
+    padding: 4px 0 0 0;
+    border-radius: 4px;
+    max-width: 500px;
+  }
+  input[type=text], select {
+    width: 50%;
+    /* padding: 12px 20px; */
+    /* margin: 8px 0; */
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .actionBtn{
+    margin-right: 2%;
+    float: right;
+    width: 47%;
+  }
+  .delete{
+    border: 1px solid red;
+  }
+  .update{
+    border: 1px solid green;
+  }
+
+  .deactivate{
+    margin-right: 2%;
+    float: right;
+    width: 96%;
+    border: 1px solid red;
+    text-align: center;
+    border-radius: 4px;
+  }

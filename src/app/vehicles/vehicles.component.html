@@ -1,0 +1,401 @@
+<app-top-bar></app-top-bar>
+<div id="container">
+  <div id="first">
+      <h2>Vehicles
+        <button id="addBTN" title="Add Note" data-toggle="modal" data-target="#myModal">+</button>
+
+          <input type="text" placeholder="Search" aria-label="Search" id ="searchBar"
+          required
+          [(ngModel)] = "searchVehicle.make">
+          <span>
+            <button >Search</button>
+          </span>
+      </h2>
+      <h2>Total Vehicles : {{ TotalVehicles }}</h2>
+  <ul class="vehicle" >
+    <ul class="nav sidebar-nav">
+      <li *ngFor="let vehicleList of vehicleList | paginate: { itemsPerPage: 10, currentPage: p }"
+      [class.selected]="vehicleList === SelectedVehicle"
+      (click)="onSelectVehicle(vehicleList)">
+        <span class="badge">{{ vehicleList.vehNumber }}</span> {{ vehicleList.make }} {{ vehicleList.model }} {{ vehicleList.release_date }}
+      </li>
+     </ul>
+  </ul>
+  <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+  </div>
+  </div>
+
+  <div *ngIf="SelectedVehicle" class="body" id="second">
+    <h2 class = "detailsLabel">Details for {{ SelectedVehicle.make }} </h2>
+
+    <h2 class = "detailsLabel">General</h2>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicles's ID:
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.vehNumber }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Make :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.make }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Model :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.model }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Release Date :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.release_date }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Category :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.category }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicles Rental Price :
+        <span><label class = "detailsLabel"></label> </span> R{{ SelectedVehicle.rentalPrice }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Can Vehicel be rented :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicleCanRent }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Vehicle Added on :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.created }}
+      </label>
+    </div>
+
+    <h2 class = "detailsLabel">Performance</h2>
+    <div class="detailsBody">
+      <label class ="spanBody">0 - 100 :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.zero_Hundred }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Transaction Control :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.Transaction_Control }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Fuel capacity :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_capacity }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Fuel supply :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_supply }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Fuel type :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_type }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Power :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.power }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Top Speed :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.Top_speed }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Torque :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.torque }}
+      </label>
+    </div>
+
+    <h2 class = "detailsLabel">Engine & Gearbox</h2>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Aspiration :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.Aspiration }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Capacity :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.capacity }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Cylinders :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.cylinders }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Fuel injection :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.fuel_injection }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Gearbox :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.gearbox }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Hybrid/Clutchless :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.hybrid_clutchless }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Manual/Automatic :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedVehicle.manual_automatic }}
+      </label>
+    </div>
+
+    <div>
+      <!-- <button class="actionBtn delete"  title="Delete Vehicle" (click)="deleteVehicle()">Delete</button>
+      <button class="actionBtn update"  title="Update Vehicle" (click)="updateVehicle()">Update</button> -->
+    </div>
+
+    <div class = "deactivate" *ngIf="deactivated == true">
+      <Label>Deactivated</Label>
+    </div>
+  </div>
+
+
+  <!--Pop up Model-->
+  <div class="modal" id="myModal" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!--The header-->
+        <div class="modal-header">
+          <h4 class="modal-title">Adding {{ createdVehicle.make }} to list!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+         <!--The header-->
+
+         <!-- Modal body -->
+         <div class="modal-body">
+           <form>
+
+             <div class="form-group">
+               <label for="make" class="col-form-label">Make : </label><br>
+               <input type="text" class="form-control" id="make"
+               required
+               [(ngModel)] = createdVehicle.make name = "make"
+               style="width: 100%;">
+             </div>
+
+            <div class="form-group">
+              <label for="model" class="col-form-label">Model : </label><br>
+              <input type="text" class="form-control" id="model"
+              required
+              [(ngModel)] = createdVehicle.model name = "model"
+              style="width: 100%;">
+            </div>
+
+            <div class="form-group">
+              <label for="release_date" class="col-form-label">Release Date : </label><br>
+              <input type="text" class="form-control" id="release_date"
+              required
+              [(ngModel)] = createdVehicle.release_date name = "release_date"
+              style="width: 100%;">
+            </div>
+
+              <div class="form-group">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{ SelectedDropDown }}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem *ngFor="let categoryList of categoryList"
+                    [class.selected]="categoryList === s"
+                    value = s
+                    (click) = onselect(categoryList)> {{categoryList}}</button>
+
+                  </div>
+                </div>
+              </div>
+
+            <div class="form-group">
+              <label for="zero_Hundred" class="col-form-label">0 - 100 : </label><br>
+              <input type="text" class="form-control" id="zero_Hundred"
+              required
+              [(ngModel)] = createdVehicle.zero_Hundred name = "zero_Hundred"
+              style="width: 100%;"
+              placeholder="eg. 6.0">
+            </div>
+
+            <div class="form-group">
+              <label for="Transaction_Control" class="col-form-label">Transaction Control : </label><br>
+              <div class="form-group">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>{{ createdVehicle.Transaction_Control }}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                    <button ngbDropdownItem (click)="Transaction_Control('Yes')">Yes</button>
+                    <button ngbDropdownItem (click)="Transaction_Control('No')">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="fuel_capacity" class="col-form-label">Fuel Capacity : </label><br>
+              <input type="text" class="form-control" id="fuel_capacity"
+              required
+              [(ngModel)] = createdVehicle.fuel_capacity name = "fuel_capacity"
+              style="width: 100%;"
+              placeholder="eg. 74">
+            </div>
+
+            <div class="form-group">
+              <label for="fuel_supply" class="col-form-label">Fuel Supply : </label><br>
+              <input type="text" class="form-control" id="fuel_supply"
+              required
+              [(ngModel)] = createdVehicle.fuel_supply name = "fuel_supply"
+              style="width: 100%;"
+              placeholder="eg. electronic">
+            </div>
+
+            <div class="form-group">
+              <label for="fuel_type" class="col-form-label">Fuel type : </label><br>
+              <input type="text" class="form-control" id="fuel_type"
+              required
+              [(ngModel)] = createdVehicle.fuel_type name = "fuel_type"
+              style="width: 100%;"
+              placeholder="eg. 	unleaded">
+            </div>
+
+            <div class="form-group">
+              <label for="power" class="col-form-label">Power : </label><br>
+              <input type="text" class="form-control" id="power"
+              required
+              [(ngModel)] = createdVehicle.power name = "power"
+              style="width: 100%;"
+              placeholder="eg. 397kw@6400F">
+            </div>
+
+            <div class="form-group">
+              <label for="Top_speed" class="col-form-label">Top Speed : </label><br>
+              <input type="text" class="form-control" id="Top_speed"
+              required
+              [(ngModel)] = createdVehicle.Top_speed name = "Top_speed"
+              style="width: 100%;"
+              placeholder="315">
+            </div>
+
+            <div class="form-group">
+              <label for="torque" class="col-form-label">Torque : </label><br>
+              <input type="text" class="form-control" id="torque"
+              required
+              [(ngModel)] = createdVehicle.torque name = "torque"
+              style="width: 100%;"
+              placeholder="eg. 628nm@3200">
+            </div>
+
+            <div class="form-group">
+              <label for="Aspiration" class="col-form-label">Aspiration : </label><br>
+              <input type="text" class="form-control" id="Aspiration"
+              required
+              [(ngModel)] = createdVehicle.Aspiration name = "Aspiration"
+              style="width: 100%;"
+              placeholder="eg. turbocharged">
+            </div>
+
+            <div class="form-group">
+              <label for="capacity" class="col-form-label">Capacity : </label><br>
+              <input type="text" class="form-control" id="capacity"
+              required
+              [(ngModel)] = createdVehicle.capacity name = "capacity"
+              style="width: 100%;"
+              placeholder="eg. 3800">
+            </div>
+
+            <div class="form-group">
+              <label for="cylinders" class="col-form-label">Cylinders : </label><br>
+              <input type="text" class="form-control" id="cylinders"
+              required
+              [(ngModel)] = createdVehicle.cylinders name = "cylinders"
+              style="width: 100%;"
+              placeholder="eg. 	6">
+            </div>
+
+            <div class="form-group">
+              <label for="fuel_injection" class="col-form-label">	Fuel_injection : </label><br>
+              <div class="form-group">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic3" ngbDropdownToggle>{{ createdVehicle.fuel_injection }}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic3">
+                    <button ngbDropdownItem (click)="fuel_injection('Yes')">Yes</button>
+                    <button ngbDropdownItem (click)="fuel_injection('No')">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="gearbox" class="col-form-label">Gearbox : </label><br>
+              <input type="text" class="form-control" id="gearbox"
+              required
+              [(ngModel)] = createdVehicle.gearbox name = "gearbox"
+              style="width: 100%;"
+              placeholder="eg. 	6-speed dual clutch; sequential mode paddles">
+            </div>
+
+            <div class="form-group">
+              <label for="hybrid_clutchless" class="col-form-label">Hybrid/Clutchless : </label><br>
+              <div class="form-group">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="dropdownBasic4" ngbDropdownToggle>{{ createdVehicle.hybrid_clutchless }}</button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic4">
+                    <button ngbDropdownItem (click)="hybridClutchless('Yes')">Yes</button>
+                    <button ngbDropdownItem (click)="hybridClutchless('No')">No</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div ngbDropdown class="d-inline-block">
+                <label for="hybrid_clutchless" class="col-form-label">Automatic or Manual : </label><br>
+                <button class="btn btn-outline-primary" id="dropdownBasic5" ngbDropdownToggle>{{ createdVehicle.manual_automatic }}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic6">
+                  <button ngbDropdownItem (click)="autoManSelect('Automatic')">Automatic</button>
+                  <button ngbDropdownItem (click)="autoManSelect('Manual')">Manual</button>
+                </div>
+              </div>
+            </div>
+
+           </form>
+         </div>
+         <!-- Modal body -->
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="createVehicle()">Save Changes</button>
+         </div>
+         <!-- Modal footer -->
+      </div>
+    </div>
+  </div>

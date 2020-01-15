@@ -1,0 +1,151 @@
+<app-top-bar></app-top-bar>
+<div id="container">
+  <div id="first">
+      <h2>Customers
+        <button id="addBTN" title="Add Note" data-toggle="modal" data-target="#myModal">+</button>
+
+          <input type="text" placeholder="Search" aria-label="Search" id ="searchBar"
+          required
+          [(ngModel)] = "searchCustomer.surName">
+          <span>
+            <button (click)=searchViaSurname()>Search</button>
+          </span>
+      </h2>
+      <h2>Total Customers : {{ TotalCustomers }}</h2>
+  <ul class="customer" >
+    <ul class="nav sidebar-nav">
+      <li *ngFor="let customerList of customerList | paginate: { itemsPerPage: 10, currentPage: p }"
+      [class.selected]="customerList === SelectedCustomer"
+      (click)="onSelect(customerList)">
+        <span class="badge">{{ customerList.custNumber }}</span> {{ customerList.firstName }} {{ customerList.surName }}
+      </li>
+     </ul>
+  </ul>
+  <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+  </div>
+  </div>
+
+  <div *ngIf="SelectedCustomer" class="body" id="second">
+    <h2 class = "detailsLabel">Details for {{ SelectedCustomer.firstName }} {{ SelectedCustomer.surName }}</h2>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer's ID:
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.custNumber }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer's First Name :
+        <input type="text" id="fname" name="firstname" placeholder="First Name" [(ngModel)] = "SelectedCustomer.firstName">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer's Last Name :
+        <input type="text" id="lName" name="firstname" placeholder="Surname" [(ngModel)] = "SelectedCustomer.surName">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Phone Number :
+        <input type="text" id="PNumber" name="Phone_Number" placeholder="Phone Number" [(ngModel)] = "SelectedCustomer.Phone_Number">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Address :
+        <input type="text" id="address" name="address" placeholder="Address" [(ngModel)] = "SelectedCustomer.Address">
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Can customer rent :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomerCanRent }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Created on :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.created }}
+      </label>
+    </div>
+
+    <div class="detailsBody">
+      <label class ="spanBody">Customer Last Rented :
+        <span><label class = "detailsLabel"></label> </span> {{ SelectedCustomer.LastRented }}
+      </label>
+    </div>
+
+    <div>
+      <button class="actionBtn delete"  title="Delete Customer" (click) = "delete()">Delete</button>
+      <button class="actionBtn update"  title="Update Customer" (click) = "update()">Update</button>
+    </div>
+
+    <div class = "deactivate" *ngIf="deactivated == true">
+      <Label>Deactivated</Label>
+    </div>
+  </div>
+
+
+  <!--Pop up Model-->
+  <div class="modal" id="myModal" data-backdrop="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!--The header-->
+        <div class="modal-header">
+          <h4 class="modal-title">Creating a new Customer!</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+         <!--The header-->
+
+         <!-- Modal body -->
+         <div class="modal-body">
+           <form>
+
+             <div class="form-group">
+               <label for="firstName" class="col-form-label">First Name : </label><br>
+               <input type="text" class="form-control" id="firstName"
+               required
+               [(ngModel)] = createdCustomer.firstName name = "firstName"
+               style="width: 100%;">
+             </div>
+
+             <div class="form-group">
+              <label for="lastName" class="col-form-label">Surname : </label><br>
+              <input type="text" class="form-control" id="lastName"
+              required
+              [(ngModel)] = createdCustomer.surName name = "lastName"
+              style="width: 100%;">
+            </div>
+
+            <div class="form-group">
+              <label for="Phone_Number" class="col-form-label">Phone Number : </label><br>
+              <input type="text" class="form-control" id="Phone_Number"
+              required
+              [(ngModel)] = createdCustomer.Phone_Number name = "Phone_Number"
+              style="width: 100%;">
+            </div>
+
+            <div class="form-group">
+              <label for="Address" class="col-form-label">Address : </label><br>
+              <input type="text" class="form-control" id="Address"
+              required
+              [(ngModel)] = createdCustomer.Address name = "Address"
+              style="width: 100%;">
+            </div>
+
+           </form>
+         </div>
+         <!-- Modal body -->
+
+         <!-- Modal footer -->
+         <div class="modal-footer">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-primary" (click) = "create()" data-dismiss="modal">Save Changes</button>
+         </div>
+         <!-- Modal footer -->
+      </div>
+    </div>
+  </div>
