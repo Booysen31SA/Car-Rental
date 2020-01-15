@@ -91,7 +91,7 @@ export class VehiclesComponent implements OnInit {
       title: 'Loading....',
       timer: 3000,
       // tslint:disable-next-line: object-literal-shorthand
-      onOpen: function () {
+      onOpen: function() {
         Swal.showLoading();
       }
     }).then(
@@ -118,7 +118,7 @@ export class VehiclesComponent implements OnInit {
       title: 'Loading....',
       timer: 3000,
       // tslint:disable-next-line: object-literal-shorthand
-      onOpen: function () {
+      onOpen: function() {
         Swal.showLoading();
       }
     }).then(
@@ -155,7 +155,7 @@ export class VehiclesComponent implements OnInit {
       title: 'Loading....',
       timer: 3000,
       // tslint:disable-next-line: object-literal-shorthand
-      onOpen: function () {
+      onOpen: function() {
         Swal.showLoading();
       }
     }).then(
@@ -192,7 +192,7 @@ export class VehiclesComponent implements OnInit {
       title: 'Loading....',
       timer: 3000,
       // tslint:disable-next-line: object-literal-shorthand
-      onOpen: function () {
+      onOpen: function() {
         Swal.showLoading();
       }
     }).then(
