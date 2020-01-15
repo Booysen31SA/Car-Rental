@@ -4,13 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CustomerComponent } from './customer/customer.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { CarRentalComponent } from './car-rental/car-rental.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginComponent },
   {path: 'homepage', component: HomepageComponent},
   {path: 'customer', component: CustomerComponent},
-  {path: 'vehicle' , component: VehiclesComponent}
+  {path: 'vehicle' , component: VehiclesComponent},
+  {path: 'rental' , component: CarRentalComponent}
 ];
 
 @NgModule({

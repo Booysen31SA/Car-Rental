@@ -10,6 +10,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomerComponent } from './customer/customer.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { CarRentalComponent } from './car-rental/car-rental.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     TopBarComponent,
     CustomerComponent,
     VehiclesComponent,
+    CarRentalComponent,
   ],
   imports: [
     BrowserModule,
