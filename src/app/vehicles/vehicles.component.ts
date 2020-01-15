@@ -108,6 +108,7 @@ export class VehiclesComponent implements OnInit {
     this.api.getAllVehicles(0) .subscribe((data: any) => {
       if (data.success) {
         this.vehicleList = data.results;
+        this.TotalVehicles = data.count;
         Swal.close();
       }
     });
