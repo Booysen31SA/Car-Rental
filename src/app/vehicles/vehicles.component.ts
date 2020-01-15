@@ -87,9 +87,28 @@ export class VehiclesComponent implements OnInit {
     this.createdVehicle.Transaction_Control = answer;
   }
   getAllVehicles() {
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function () {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+
     this.api.getAllVehicles(0) .subscribe((data: any) => {
       if (data.success) {
         this.vehicleList = data.results;
+        Swal.close();
       }
     });
   }
