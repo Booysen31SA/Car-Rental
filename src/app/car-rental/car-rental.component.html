@@ -26,7 +26,7 @@
     <ul class="nav sidebar-nav">
       <li *ngFor="let rentalList of rentalList | paginate: { itemsPerPage: 10, currentPage: p }"
       [class.selected]="rentalList === SelectedRental"
-      >
+      (click) = "OnSelect(rentalList)">
         <span class="badge">{{ rentalList.rentalNumber }}</span> {{ rentalList.dateRental }}
       </li>
      </ul>
@@ -59,13 +59,13 @@
 
     <div class="detailsBody">
       <label class ="spanBody">Price Per Day:
-        <span><label class = "detailsLabel"></label> </span> {{ SelectedRental.pricePerDay }}
+        <span><label class = "detailsLabel"></label> </span> R{{ SelectedRental.pricePerDay }} per day
       </label>
     </div>
 
     <div class="detailsBody">
       <label class ="spanBody">Total of rental:
-        <span><label class = "detailsLabel"></label> </span> {{ SelectedRental.totalRentals }}
+        <span><label class = "detailsLabel"></label> </span> R{{ SelectedRental.totalrental }}
       </label>
     </div>
 
@@ -81,10 +81,10 @@
       </label>
     </div>
 
-    <!-- <div>
-      <button class="actionBtn delete"  title="Delete Customer" (click) = "delete()">Delete</button>
-      <button class="actionBtn update"  title="Update Customer" (click) = "update()">Update</button>
-    </div> -->
+    <div>
+      <!-- <button class="actionBtn delete"  title="Delete Customer" (click) = "delete()">Delete</button> -->
+      <button class="actionBtn update"  title="Clear Rentals" (click) = "cleared()">Clear</button>
+    </div>
 
     <div class = "deactivate" *ngIf="deactivated == true">
       <Label>Deactivated</Label>

@@ -22,7 +22,7 @@ export class CarRentalComponent implements OnInit {
 
   toggle: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private api: ApiServiceService) { }
 
   ngOnInit() {
     this.rental = new Rental();
@@ -33,8 +33,45 @@ export class CarRentalComponent implements OnInit {
     }
   }
 
-  togglebtn(answer: string) {
-    this.toggle = answer;
+  OnSelect(rentalList: Rental){
+    this.SelectedRental = rentalList;
   }
 
+  cleared() {
+  }
+
+  togglebtn(answer: string) {
+    this.rentalList = [];
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function() {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+    this.toggle = answer;
+    this.api.getAllRentals(this.toggle.replace(/\s/g, '')) .subscribe((data: any) => {
+      if (data.success) {
+        this.rentalList = data.results;
+        this.TotalRentals = data.count;
+        Swal.close();
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+          data.message
+        );
+      }
+    });
+  }
 }

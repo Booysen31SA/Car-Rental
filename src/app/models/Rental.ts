@@ -3,7 +3,7 @@ export class Rental {
   dateRental: Date;
   dateReturned: Date;
   pricePerDay: number;
-  totalRentals: number;
+  totalrental: number;
   custNumber: number;
   vehNumber: number;
 }
