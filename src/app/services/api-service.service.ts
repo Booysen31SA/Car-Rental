@@ -85,7 +85,7 @@ export class ApiServiceService {
     return this.http.get(this.url + '/vehicleCategories/getall/' + $disabled);
   }
 
-    // ================================================================
+  // ================================================================
   //                       Vehicle
   // ================================================================
   getAllVehicles($disabled: number) {
@@ -129,5 +129,12 @@ export class ApiServiceService {
       manual_automatic: vehicle.manual_automatic
     });
     return this.http.post(this.url + '/vehicle', body);
+  }
+
+  // ================================================================
+  //                       Rentals
+  // ================================================================
+  getAllRentals(type: string) {
+    return this.http.get(this.url + '/rental/get' + type);
   }
 }
