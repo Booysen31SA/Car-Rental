@@ -33,8 +33,13 @@ export class CarRentalComponent implements OnInit {
     }
   }
 
-  OnSelect(rentalList: Rental){
+  OnSelect(rentalList: Rental) {
     this.SelectedRental = rentalList;
+    if (rentalList.dateReturned != null) {
+      this.deactivated = true;
+    } else {
+      this.deactivated = false;
+    }
   }
 
   cleared() {
