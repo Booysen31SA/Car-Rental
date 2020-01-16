@@ -47,6 +47,7 @@ export class CarRentalComponent implements OnInit {
 
   togglebtn(answer: string) {
     this.rentalList = [];
+    this.SelectedRental = null;
     Swal.fire({
       title: 'Loading....',
       timer: 3000,
