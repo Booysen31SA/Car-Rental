@@ -40,7 +40,7 @@ export class CustomerComponent implements OnInit {
     } else {
       this.deactivated = true;
     }
-    if (customer.canRent === 1) {
+    if (customer.canRent === '0') {
       this.SelectedCustomerCanRent = 'Yes';
     } else {
       this.SelectedCustomerCanRent = 'No';

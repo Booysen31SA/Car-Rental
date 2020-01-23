@@ -67,11 +67,12 @@ export class VehiclesComponent implements OnInit {
     } else {
       this.deactivated = true;
     }
-    if (vehicle.availableForRent === 1) {
+    if (vehicle.availableForRent === '0') {
       this.SelectedVehicleCanRent = 'Yes';
     } else {
       this.SelectedVehicleCanRent = 'No';
     }
+    console.log(vehicle.availableForRent);
   }
 
   autoManSelect(answer: string) {
