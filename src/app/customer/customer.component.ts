@@ -40,7 +40,7 @@ export class CustomerComponent implements OnInit {
     } else {
       this.deactivated = true;
     }
-    if (customer.canRent) {
+    if (customer.canRent === 1) {
       this.SelectedCustomerCanRent = 'Yes';
     } else {
       this.SelectedCustomerCanRent = 'No';
@@ -198,13 +198,13 @@ export class CustomerComponent implements OnInit {
     );
 
     this.api.createCustomer(this.createdCustomer) .subscribe((data: any) => {
-      this.getAllCustomers();
       if (data.success) {
         Swal.close();
         Swal.fire(
           'Success!',
           data.message
         );
+        this.getAllCustomers();
         this.createdCustomer = null;
         this.createdCustomer = new Customer();
       } else {

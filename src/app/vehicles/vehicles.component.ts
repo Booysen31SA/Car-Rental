@@ -67,7 +67,7 @@ export class VehiclesComponent implements OnInit {
     } else {
       this.deactivated = true;
     }
-    if (vehicle.availableForRent) {
+    if (vehicle.availableForRent === 1) {
       this.SelectedVehicleCanRent = 'Yes';
     } else {
       this.SelectedVehicleCanRent = 'No';

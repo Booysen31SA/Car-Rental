@@ -143,6 +143,6 @@ export class ApiServiceService {
       custNumber: rental.custNumber,
       vehNumber: rental.vehNumber
     });
-    return this.http.post(this.url + 'rental', body);
+    return this.http.post(this.url + '/rental', body);
   }
 }
