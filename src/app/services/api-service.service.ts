@@ -137,4 +137,12 @@ export class ApiServiceService {
   getAllRentals(type: string) {
     return this.http.get(this.url + '/rental/get' + type);
   }
+
+  createRental(rental: any) {
+    const body = JSON.stringify({
+      custNumber: rental.custNumber,
+      vehNumber: rental.vehNumber
+    });
+    return this.http.post(this.url + 'rental', body);
+  }
 }

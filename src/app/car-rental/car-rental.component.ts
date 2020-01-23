@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Rental } from '../models/Rental';
 import { ApiServiceService } from '../services/api-service.service';
 import Swal from 'sweetalert2';
+import { Vehicle } from '../models/Vehicle';
 
 @Component({
   selector: 'app-car-rental',
@@ -19,6 +20,9 @@ export class CarRentalComponent implements OnInit {
   SelectedRentCanRent: string;
   deactivated: boolean;
   createdRental: Rental;
+  vehicleList: [];
+
+  selectVehicle: Vehicle;
 
   toggle: any;
 
@@ -28,9 +32,11 @@ export class CarRentalComponent implements OnInit {
     this.rental = new Rental();
     this.searchRental = new Rental();
     this.createdRental = new Rental();
+    this.selectVehicle = new Vehicle();
     if (!sessionStorage.getItem('Username')) {
       this.router.navigateByUrl('/login');
     }
+    this.getAllVehicles();
   }
 
   OnSelect(rentalList: Rental) {
@@ -76,6 +82,55 @@ export class CarRentalComponent implements OnInit {
         Swal.fire(
           'Failed!',
           data.message
+        );
+      }
+    });
+  }
+
+  getAllVehicles() {
+    this.api.getAllVehicles(0) .subscribe((data: any) => {
+      if (data.success) {
+        this.vehicleList = data.results;
+      }
+    });
+  }
+
+  vehicleOnSelect(vehicle: any) {
+    this.selectVehicle = vehicle;
+    console.log(this.selectVehicle);
+  }
+
+  save() {
+    this.createdRental.vehNumber = this.selectVehicle.vehNumber;
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function() {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+    this.api.createRental(this.createdRental) .subscribe((data: any) => {
+      if (data.success) {
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
         );
       }
     });
