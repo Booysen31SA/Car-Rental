@@ -135,4 +135,23 @@ export class CarRentalComponent implements OnInit {
       }
     });
   }
+
+  returnedVehicle() {
+    this.api.returnedVehicle(this.SelectedRental) .subscribe((data: any) => {
+      if (data.success) {
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+        this.selectVehicle = null;
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
+      }
+    });
+  }
 }

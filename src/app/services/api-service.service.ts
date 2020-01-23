@@ -145,4 +145,13 @@ export class ApiServiceService {
     });
     return this.http.post(this.url + '/rental', body);
   }
+
+  returnedVehicle(rental: any) {
+    const body = JSON.stringify({
+      custNumber: rental.custNumber,
+      vehNumber: rental.vehNumber,
+      rentalNumber: rental.rentalNumber
+    });
+    return this.http.post(this.url + '/rental/' + rental.custNumber, body);
+  }
 }
