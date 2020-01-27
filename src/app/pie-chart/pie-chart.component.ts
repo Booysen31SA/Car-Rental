@@ -10,7 +10,7 @@ import { single } from '../data';
 })
 export class PieChartComponent implements OnInit {
 
-  single: any[];
+  single: any[]; //data
   view: any[] = [500, 400];
 
   // options
