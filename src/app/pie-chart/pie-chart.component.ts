@@ -11,7 +11,7 @@ import { single } from '../data';
 export class PieChartComponent implements OnInit {
 
   single: any[]; //data
-  view: any[] = [500, 400];
+  view: any[] = [500, 400]; //postion
 
   // options
   gradient: boolean = true;
