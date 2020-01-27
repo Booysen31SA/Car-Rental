@@ -12,6 +12,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { CarRentalComponent } from './car-rental/car-rental.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     VehiclesComponent,
     CarRentalComponent,
     DashboardComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
