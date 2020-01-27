@@ -11,7 +11,7 @@ import { single } from '../data3';
 export class LineGraphComponent implements OnInit {
 
   single: any[];
-  view: any[] = [500, 400];
+  view: any[] = [500, 500];
 
   // options
   legend: boolean = true;
@@ -21,7 +21,7 @@ export class LineGraphComponent implements OnInit {
   yAxis: boolean = true;
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Year';
+  xAxisLabel: string = 'Month';
   yAxisLabel: string = 'Population';
   timeline: boolean = true;
 

@@ -13,7 +13,7 @@ export class VerticalBarChartComponent implements OnInit {
   single: any[];
   multi: any[];
 
-  view: any[] = [500, 400];
+  view: any[] = [500, 500];
 
   // options
   showXAxis = true;
