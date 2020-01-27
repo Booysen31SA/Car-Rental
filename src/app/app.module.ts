@@ -11,6 +11,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CustomerComponent } from './customer/customer.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { CarRentalComponent } from './car-rental/car-rental.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CarRentalComponent } from './car-rental/car-rental.component';
     CustomerComponent,
     VehiclesComponent,
     CarRentalComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

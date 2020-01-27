@@ -5,6 +5,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CustomerComponent } from './customer/customer.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
 import { CarRentalComponent } from './car-rental/car-rental.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'homepage', component: HomepageComponent},
   {path: 'customer', component: CustomerComponent},
   {path: 'vehicle' , component: VehiclesComponent},
-  {path: 'rental' , component: CarRentalComponent}
+  {path: 'rental' , component: CarRentalComponent},
+  {path: 'dashboard', component: DashboardComponent}
 ];
 
 @NgModule({
