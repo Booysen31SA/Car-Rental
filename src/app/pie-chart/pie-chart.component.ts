@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { single } from '../data';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-pie-chart',
@@ -21,24 +21,39 @@ export class PieChartComponent implements OnInit {
   legendPosition: string = 'below';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#51AE25',
+             '#0000ff',
+             '#ff66cc',
+             '#ffff66',
+             '#996600',
+             '#003300',
+             '#ff3399',
+             '#66ff66',
+             '#ff0000',
+             '#cc00cc',
+             '#993366',
+             '#ff99cc',
+             '#999966',
+             '#666699',
+             '#006666',
+             '#993333',
+             '#ffff00',
+             '#00ffcc']
   };
 
-  constructor() {}
+  constructor(private api: ApiServiceService) {}
 
   ngOnInit() {
-    Object.assign(this, { single });
+    this.Manual_VS_Automatic();
   }
 
-  onSelect(data): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+  Manual_VS_Automatic() {
+    this.api.Manual_VS_Automatic() .subscribe(( data: any) => {
+      if (data.success) {
+        this.single = data.results;
+        console.log(this.single);
+      }
+    });
   }
 
-  onActivate(data): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
-  }
-
-  onDeactivate(data): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
-  }
 }

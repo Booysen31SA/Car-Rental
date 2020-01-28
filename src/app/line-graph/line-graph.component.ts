@@ -26,7 +26,24 @@ export class LineGraphComponent implements OnInit {
   timeline = true;
 
   colorScheme = {
-    domain: ['RED']
+    domain: ['#51AE25',
+             '#0000ff',
+             '#ff66cc',
+             '#ffff66',
+             '#996600',
+             '#003300',
+             '#ff3399',
+             '#66ff66',
+             '#ff0000',
+             '#cc00cc',
+             '#993366',
+             '#ff99cc',
+             '#999966',
+             '#666699',
+             '#006666',
+             '#993333',
+             '#ffff00',
+             '#00ffcc']
   };
 
   constructor(private api: ApiServiceService) { }

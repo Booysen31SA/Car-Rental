@@ -161,4 +161,12 @@ export class ApiServiceService {
   SalesPerMonth() {
     return this.http.get(this.url + '/SalesPerMonth');
   }
+
+  Manual_VS_Automatic() {
+    return this.http.get(this.url + '/Manual_VS_Automatic');
+  }
+
+  Models_Sold() {
+    return this.http.get(this.url + '/Models_Sold');
+  }
 }

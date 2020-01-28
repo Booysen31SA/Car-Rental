@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { single } from '../data2';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-vertical-bar-chart',
@@ -26,18 +26,40 @@ export class VerticalBarChartComponent implements OnInit {
   yAxisLabel = 'Population';
 
   colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+    domain: ['#51AE25',
+             '#0000ff',
+             '#ff66cc',
+             '#ffff66',
+             '#996600',
+             '#003300',
+             '#ff3399',
+             '#66ff66',
+             '#ff0000',
+             '#cc00cc',
+             '#993366',
+             '#ff99cc',
+             '#999966',
+             '#666699',
+             '#006666',
+             '#993333',
+             '#ffff00',
+             '#00ffcc']
   };
 
-  constructor() {
+  constructor(private api: ApiServiceService) {
   }
 
 
   ngOnInit() {
-    Object.assign(this, { single })
-  }
-  onSelect(event) {
-    console.log(event);
+    this.Models_Sold();
   }
 
+  Models_Sold() {
+    this.api.Models_Sold() .subscribe(( data: any) => {
+      if (data.success) {
+        this.single = data.results;
+        console.log(this.single);
+      }
+    });
+  }
 }
