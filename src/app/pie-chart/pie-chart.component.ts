@@ -44,16 +44,33 @@ export class PieChartComponent implements OnInit {
   constructor(private api: ApiServiceService) {}
 
   ngOnInit() {
-    this.Manual_VS_Automatic();
+    this.Outstanding_Vs_Paid();
+    this.random_Function();
+  }
+
+  random_Function() {
+    if (Math.floor(Math.random() * Math.floor(2)) === 1) {
+      this.Manual_VS_Automatic();
+    } else if (Math.floor(Math.random() * Math.floor(2)) === 0) {
+      this.Outstanding_Vs_Paid();
+    }
   }
 
   Manual_VS_Automatic() {
     this.api.Manual_VS_Automatic() .subscribe(( data: any) => {
       if (data.success) {
         this.single = data.results;
-        console.log(this.single);
       }
     });
   }
+
+  Outstanding_Vs_Paid() {
+    this.api.Outstanding_Vs_Paid() .subscribe(( data: any) => {
+      if (data.success) {
+        this.single = data.results;
+      }
+    });
+  }
+
 
 }

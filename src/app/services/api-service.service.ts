@@ -169,4 +169,7 @@ export class ApiServiceService {
   Models_Sold() {
     return this.http.get(this.url + '/Models_Sold');
   }
+  Outstanding_Vs_Paid() {
+    return this.http.get(this.url + '/Outstanding_Vs_Paid');
+  }
 }
