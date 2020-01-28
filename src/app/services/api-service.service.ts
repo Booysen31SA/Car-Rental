@@ -154,4 +154,11 @@ export class ApiServiceService {
     });
     return this.http.post(this.url + '/rental/' + rental.custNumber, body);
   }
+
+  // ================================================================
+  //                       Procedures
+  // ================================================================
+  SalesPerMonth() {
+    return this.http.get(this.url + '/SalesPerMonth');
+  }
 }

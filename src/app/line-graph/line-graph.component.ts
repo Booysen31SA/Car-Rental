@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { single } from '../data3';
+import { ApiServiceService } from '../services/api-service.service';
 
 @Component({
   selector: 'app-line-graph',
@@ -14,25 +14,36 @@ export class LineGraphComponent implements OnInit {
   view: any[] = [500, 500];
 
   // options
-  legend: boolean = true;
-  showLabels: boolean = true;
-  animations: boolean = true;
-  xAxis: boolean = true;
-  yAxis: boolean = true;
-  showYAxisLabel: boolean = true;
-  showXAxisLabel: boolean = true;
-  xAxisLabel: string = 'Month';
-  yAxisLabel: string = 'Population';
-  timeline: boolean = true;
+  legend  = true;
+  showLabels = true;
+  animations = true;
+  xAxis = true;
+  yAxis = true;
+  showYAxisLabel = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Month';
+  yAxisLabel = 'Sales';
+  timeline = true;
 
   colorScheme = {
     domain: ['RED']
   };
 
-  constructor() { }
+  constructor(private api: ApiServiceService) { }
 
   ngOnInit() {
-    Object.assign(this, { single });
+     this.SalesPerMonth();
   }
 
+  SalesPerMonth() {
+    this.api.SalesPerMonth() .subscribe((data: any) => {
+
+      if (data.name === 'Sales per Month') {
+        this.yAxisLabel = data.name;
+        this.xAxisLabel = data.SalesYear;
+
+        this.single = data.results;
+      }
+    });
+  }
 }
