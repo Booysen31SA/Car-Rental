@@ -21,9 +21,9 @@ export class VerticalBarChartComponent implements OnInit {
   gradient = false;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Vehicle';
   showYAxisLabel = true;
-  yAxisLabel = 'Population';
+  yAxisLabel = 'Sales per vehicle';
 
   colorScheme = {
     domain: ['#51AE25',
