@@ -58,7 +58,6 @@ export class VerticalBarChartComponent implements OnInit {
     this.api.Models_Sold() .subscribe(( data: any) => {
       if (data.success) {
         this.single = data.results;
-        console.log(this.single);
       }
     });
   }
