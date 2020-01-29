@@ -142,7 +142,7 @@ export class CarRentalComponent implements OnInit {
         Swal.close();
         Swal.fire(
           'Success!',
-          data.message
+          data.message + ' R' + data.Price + ' is Still Owed',
         );
         this.selectVehicle = null;
       } else {
