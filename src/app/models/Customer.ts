@@ -5,7 +5,7 @@ export class Customer {
   // tslint:disable-next-line: variable-name
   Phone_Number: string;
   Address: string;
-  canRent: number;
+  canRent: any;
   created: Date;
   LastRented: Date;
   disabled: any;

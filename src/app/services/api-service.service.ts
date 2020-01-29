@@ -137,4 +137,42 @@ export class ApiServiceService {
   getAllRentals(type: string) {
     return this.http.get(this.url + '/rental/get' + type);
   }
+
+  createRental(rental: any) {
+    const body = JSON.stringify({
+      custNumber: rental.custNumber,
+      vehNumber: rental.vehNumber
+    });
+    return this.http.post(this.url + '/rental', body);
+  }
+
+  returnedVehicle(rental: any) {
+    const body = JSON.stringify({
+      custNumber: rental.custNumber,
+      vehNumber: rental.vehNumber,
+      rentalNumber: rental.rentalNumber
+    });
+    return this.http.post(this.url + '/rental/' + rental.custNumber, body);
+  }
+
+  // ================================================================
+  //                       Procedures
+  // ================================================================
+  SalesPerMonth() {
+    return this.http.get(this.url + '/SalesPerMonth');
+  }
+
+  Manual_VS_Automatic() {
+    return this.http.get(this.url + '/Manual_VS_Automatic');
+  }
+
+  Models_Sold() {
+    return this.http.get(this.url + '/Models_Sold');
+  }
+  Outstanding_Vs_Paid() {
+    return this.http.get(this.url + '/Outstanding_Vs_Paid');
+  }
+  car_sales_category() {
+    return this.http.get(this.url + '/car_sales_category');
+  }
 }

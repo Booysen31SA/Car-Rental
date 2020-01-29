@@ -30,7 +30,7 @@ export class Vehicle {
   hybrid_clutchless: string;
   // tslint:disable-next-line: variable-name
   manual_automatic: string;
-  availableForRent: number;
+  availableForRent: any;
   created: Date;
   modified: Date;
   disabled: any;

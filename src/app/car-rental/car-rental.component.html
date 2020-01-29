@@ -83,7 +83,7 @@
 
     <div>
       <!-- <button class="actionBtn delete"  title="Delete Customer" (click) = "delete()">Delete</button> -->
-      <button *ngIf="deactivated == false" class="actionBtn update"  title="Clear Rentals" (click) = "cleared()">Clear</button>
+      <button *ngIf="deactivated == false" class="actionBtn update"  title="Clear Rentals" (click) = "returnedVehicle()">Clear</button>
     </div>
 
     <div class = "deactivate" *ngIf="deactivated == true">
@@ -109,19 +109,20 @@
            <form>
 
             <div class="form-group">
-              <label for="custNumber" class="col-form-label">Customer Phone Number : </label><br>
-              <input type="text" class="form-control" id="custNumber"
+              <label for="phoneNumber" class="col-form-label">Customer Phone Number : </label><br>
+              <input type="text" class="form-control" id="phoneNumber" name = "phoneNumber"
               required
-              [(ngModel)] = createdRental.custNumber name = "custNumber"
+              [(ngModel)] = createdRental.custNumber name = "phoneNumber"
               style="width: 100%;">
             </div>
 
             <div class="form-group">
               <label for="vehNumber" class="col-form-label">Vehicle Number : </label><br>
-              <input type="text" class="form-control" id="vehNumber"
-              required
-              [(ngModel)] = createdRental.vehNumber name = "vehNumber"
-              style="width: 100%;">
+              <select class="form-control" style="width: 100%;" name="combo" [(ngModel)] = "selectVehicle" required>
+                <option *ngFor ="let vehicle of vehicleList" [ngValue]="vehicle"
+                [class.selected] = "vehicle === selectVehicle"
+                >({{vehicle.vehNumber}}) {{vehicle.make}} {{vehicle.model}}</option>
+              </select>
             </div>
 
            </form>
@@ -131,7 +132,7 @@
          <!-- Modal footer -->
          <div class="modal-footer">
            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+           <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="save()">Save Changes</button>
          </div>
          <!-- Modal footer -->
       </div>
