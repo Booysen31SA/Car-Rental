@@ -56,7 +56,7 @@ export class LineGraphComponent implements OnInit {
     this.api.SalesPerMonth() .subscribe((data: any) => {
 
       if (data.name === 'Sales per Month') {
-        this.yAxisLabel = data.name;
+        this.yAxisLabel = data.name + ' R';
         this.xAxisLabel = data.SalesYear;
 
         this.single = data.results;
