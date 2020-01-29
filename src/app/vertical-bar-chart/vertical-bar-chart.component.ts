@@ -51,11 +51,31 @@ export class VerticalBarChartComponent implements OnInit {
 
 
   ngOnInit() {
-    this.Models_Sold();
+    this.random_Function();
+  }
+
+  random_Function() {
+    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+    if ( randomNumber === 1) {
+      this.Models_Sold();
+    } else if (randomNumber === 0) {
+      this.car_sales_category();
+    }
   }
 
   Models_Sold() {
+    this.xAxisLabel = 'Vehicle';
+    this.yAxisLabel = 'Sales per vehicle';
     this.api.Models_Sold() .subscribe(( data: any) => {
+      if (data.success) {
+        this.single = data.results;
+      }
+    });
+  }
+  car_sales_category() {
+    this.xAxisLabel = 'Category';
+    this.yAxisLabel = 'Sales per category';
+    this.api.car_sales_category() .subscribe(( data: any) => {
       if (data.success) {
         this.single = data.results;
       }

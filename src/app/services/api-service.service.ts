@@ -172,4 +172,7 @@ export class ApiServiceService {
   Outstanding_Vs_Paid() {
     return this.http.get(this.url + '/Outstanding_Vs_Paid');
   }
+  car_sales_category() {
+    return this.http.get(this.url + '/car_sales_category');
+  }
 }

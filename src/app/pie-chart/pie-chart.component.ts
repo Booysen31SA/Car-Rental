@@ -49,9 +49,10 @@ export class PieChartComponent implements OnInit {
   }
 
   random_Function() {
-    if (Math.floor(Math.random() * Math.floor(2)) === 1) {
+    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+    if ( randomNumber === 1) {
       this.Manual_VS_Automatic();
-    } else if (Math.floor(Math.random() * Math.floor(2)) === 0) {
+    } else if (randomNumber === 0) {
       this.Outstanding_Vs_Paid();
     }
   }
@@ -71,6 +72,5 @@ export class PieChartComponent implements OnInit {
       }
     });
   }
-
 
 }
