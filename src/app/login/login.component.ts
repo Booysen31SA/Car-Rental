@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     this.apiService.login(this.Username, this.password) .subscribe((data: any ) => {
     this.password = '';
     if (data.success) {
-      this.router.navigateByUrl('/homepage');
+      this.router.navigateByUrl('/dashboard');
       Swal.close();
     } else {
       Swal.fire({
