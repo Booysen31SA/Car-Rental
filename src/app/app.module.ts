@@ -18,6 +18,7 @@ import { VerticalBarChartComponent } from './vertical-bar-chart/vertical-bar-cha
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LineGraphComponent } from './line-graph/line-graph.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ApproveComponent } from './approve/approve.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
     VerticalBarChartComponent,
     LineGraphComponent,
     ProfileComponent,
+    ApproveComponent,
   ],
   imports: [
     BrowserModule,
