@@ -10,15 +10,15 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class PieChartComponent implements OnInit {
 
-  single: any[]; //data
-  view: any[] = [500, 400]; //postion
+  single: any[]; // data
+  view: any[] = [500, 400]; // postion
 
   // options
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabels: boolean = true;
-  isDoughnut: boolean = false;
-  legendPosition: string = 'below';
+  gradient = true;
+  showLegend = true;
+  showLabels = true;
+  isDoughnut = false;
+  legendPosition = 'below';
 
   colorScheme = {
     domain: ['#51AE25',
@@ -44,12 +44,11 @@ export class PieChartComponent implements OnInit {
   constructor(private api: ApiServiceService) {}
 
   ngOnInit() {
-    this.Outstanding_Vs_Paid();
     this.random_Function();
   }
 
   random_Function() {
-    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+    const randomNumber = Math.floor(Math.random() * Math.floor(2));
     if ( randomNumber === 1) {
       this.Manual_VS_Automatic();
     } else if (randomNumber === 0) {
