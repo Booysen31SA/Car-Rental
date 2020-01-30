@@ -44,7 +44,6 @@ export class PieChartComponent implements OnInit {
   constructor(private api: ApiServiceService) {}
 
   ngOnInit() {
-    this.Outstanding_Vs_Paid();
     this.random_Function();
   }
 
