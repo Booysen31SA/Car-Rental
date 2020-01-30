@@ -17,6 +17,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { VerticalBarChartComponent } from './vertical-bar-chart/vertical-bar-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LineGraphComponent } from './line-graph/line-graph.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LineGraphComponent } from './line-graph/line-graph.component';
     PieChartComponent,
     VerticalBarChartComponent,
     LineGraphComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
