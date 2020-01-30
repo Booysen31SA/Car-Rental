@@ -48,7 +48,7 @@ export class PieChartComponent implements OnInit {
   }
 
   random_Function() {
-    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+    const randomNumber = Math.floor(Math.random() * Math.floor(2));
     if ( randomNumber === 1) {
       this.Manual_VS_Automatic();
     } else if (randomNumber === 0) {
