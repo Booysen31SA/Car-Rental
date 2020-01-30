@@ -10,15 +10,15 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class PieChartComponent implements OnInit {
 
-  single: any[]; //data
-  view: any[] = [500, 400]; //postion
+  single: any[]; // data
+  view: any[] = [500, 400]; // postion
 
   // options
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabels: boolean = true;
-  isDoughnut: boolean = false;
-  legendPosition: string = 'below';
+  gradient = true;
+  showLegend = true;
+  showLabels = true;
+  isDoughnut = false;
+  legendPosition = 'below';
 
   colorScheme = {
     domain: ['#51AE25',

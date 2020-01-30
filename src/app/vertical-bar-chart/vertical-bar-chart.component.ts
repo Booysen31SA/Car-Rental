@@ -55,7 +55,7 @@ export class VerticalBarChartComponent implements OnInit {
   }
 
   random_Function() {
-    let randomNumber = Math.floor(Math.random() * Math.floor(2));
+    const randomNumber = Math.floor(Math.random() * Math.floor(2));
     if ( randomNumber === 1) {
       this.Models_Sold();
     } else if (randomNumber === 0) {
