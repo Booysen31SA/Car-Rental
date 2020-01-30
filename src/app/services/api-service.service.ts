@@ -175,4 +175,7 @@ export class ApiServiceService {
   car_sales_category() {
     return this.http.get(this.url + '/car_sales_category');
   }
+  Get_PendingList() {
+    return this.http.get(this.url + '/Get_PendingList');
+  }
 }
