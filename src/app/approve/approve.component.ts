@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiServiceService } from '../services/api-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-approve',
@@ -27,11 +28,77 @@ export class ApproveComponent implements OnInit {
     });
   }
 
-  approve(ID: any) {
-    console.log(ID);
+  approve(ID: any, Username: any) {
+    Swal.fire({
+    title: 'Loading....',
+    timer: 3000,
+    // tslint:disable-next-line: object-literal-shorthand
+    onOpen: function() {
+      Swal.showLoading();
+    }
+  }).then(
+    // tslint:disable-next-line: only-arrow-functions
+    function() {},
+    // handling the promise rejection
+    function failed(isLoggIn) {
+      if (isLoggIn === true) {
+        console.log('I was closed by the timer');
+      }
+    }
+  );
+    this.api.approve(ID, Username) .subscribe(( data: any ) => {
+      if (data.success) {
+        Swal.close();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+      } else {
+        Swal.close();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
+      }
+  });
+
   }
-  decline(ID: any) {
-    console.log(ID);
+  decline(ID: any, Username: any) {
+    Swal.fire({
+      title: 'Loading....',
+      timer: 3000,
+      // tslint:disable-next-line: object-literal-shorthand
+      onOpen: function() {
+        Swal.showLoading();
+      }
+    }).then(
+      // tslint:disable-next-line: only-arrow-functions
+      function() {},
+      // handling the promise rejection
+      function failed(isLoggIn) {
+        if (isLoggIn === true) {
+          console.log('I was closed by the timer');
+        }
+      }
+    );
+
+    this.api.decline(ID, Username) .subscribe(( data: any ) => {
+      if (data.success) {
+        Swal.close();
+        this.Get_PendingList();
+        Swal.fire(
+          'Success!',
+          data.message
+        );
+      } else {
+        Swal.close();
+        this.Get_PendingList();
+        Swal.fire(
+          'Failed!',
+           data.message
+        );
+      }
+    });
   }
 
 }

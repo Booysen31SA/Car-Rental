@@ -17,8 +17,8 @@
   </div>
   <div class="card-footer text-muted">
     {{ approveList.DateDiff }} days ago
-    <a class="btn btn-primary" style="float: right;margin-left: 1%;color: white;" (click)=approve(approveList.ID)>Approve</a>
-    <a class="btn btn-danger" style="float: right;color: white;" (click)=decline(approveList.ID)>Decline</a>
+    <a class="btn btn-primary" style="float: right;margin-left: 1%;color: white;" (click)='approve(approveList.ID, approveList.Username)'>Approve</a>
+    <a class="btn btn-danger" style="float: right;color: white;" (click)='decline(approveList.ID, approveList.Username)'>Decline</a>
   </div>
 </div>
 </div>

@@ -44,6 +44,25 @@ export class ApiServiceService {
   }
 
   // ================================================================
+  //                       Users
+  // ================================================================
+  approve(ID: any, username: any) {
+    const body = JSON.stringify({
+      Username: username,
+      UserID : ID
+    });
+    return this.http.post(this.url + '/user/Approve', body);
+  }
+
+  decline(ID: any, username: any) {
+    const body = JSON.stringify({
+      Username : username,
+      UserID : ID,
+    });
+    return this.http.post(this.url + '/user/Decline', body);
+  }
+
+  // ================================================================
   //                       Customers
   // ================================================================
   getAllCustomers() {
