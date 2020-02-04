@@ -1,2 +1,120 @@
 <app-top-bar></app-top-bar>
-<p>profile works!</p>
+<div class="container">
+  <h1>Edit Profile - {{ userDetails.First_Name | uppercase}} {{ userDetails.Last_Name | uppercase }}</h1>
+</div>
+
+<div class="cotainer">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header">Update</div>
+                  <div class="card-body">
+
+                            <div class="form-group row">
+                              <label for="user_Id" class="col-md-4 col-form-label text-md-right">User ID</label>
+                              <div class="col-md-6">
+                                  <input type="text"
+                                   id="user_Id"
+                                   class="form-control"
+                                   name="userId"
+                                   placeholder="user ID"
+                                  required
+                                  [(ngModel)] = 'userDetails.ID'
+                                  readonly>
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="Username" class="col-md-4 col-form-label text-md-right">Username</label>
+                              <div class="col-md-6">
+                                  <input type="text" id="Username" class="form-control" name="Username" placeholder="Username"
+                                  required
+                                  [(ngModel)] = 'userDetails.Username'
+                                  readonly
+                                  >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                              <label for="first_name" class="col-md-4 col-form-label text-md-right">First name</label>
+                              <div class="col-md-6">
+                                  <input type="text" id="first_name" class="form-control" name="first_name" placeholder="First Name"
+                                  required
+                                  [(ngModel)] = 'userDetails.First_Name'
+                                  >
+                              </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="last_name" class="col-md-4 col-form-label text-md-right">Last name</label>
+                            <div class="col-md-6">
+                                <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Last Name"
+                                required
+                                [(ngModel)] = 'userDetails.Last_Name'
+                                >
+                            </div>
+                        </div>
+
+                  <div class="form-group row">
+                      <label for="cell_number" class="col-md-4 col-form-label text-md-right">Cell Number</label>
+                      <div class="col-md-6">
+                          <input type="text" id="cell_number" class="form-control" name="cell_number" placeholder="Cell Number"
+                          required
+                          [(ngModel)] = 'userDetails.Cell_Number'
+                          >
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="Address" class="col-md-4 col-form-label text-md-right">Address</label>
+                    <div class="col-md-6">
+                        <input type="text" id="Address" class="form-control" name="Address" placeholder="Address"
+                        required
+                        [(ngModel)] = 'userDetails.Home_Address'
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="created" class="col-md-4 col-form-label text-md-right">Created</label>
+                  <div class="col-md-6">
+                      <input type="text" id="created" class="form-control" name="created" placeholder="Created"
+                      required
+                      [(ngModel)] = 'userDetails.Created'
+                      readonly
+                      >
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="Last_Login" class="col-md-4 col-form-label text-md-right">Last Login</label>
+                <div class="col-md-6">
+                    <input type="text" id="Last_Login" class="form-control" name="Last_Login" placeholder="Last Login"
+                    required
+                    [(ngModel)] = 'userDetails.Last_Login'
+                    readonly
+                    >
+                </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="status" class="col-md-4 col-form-label text-md-right">Status</label>
+              <div class="col-md-6">
+                  <input type="text" id="status" class="form-control" name="status" placeholder="status"
+                  required
+                  [(ngModel)] = 'userDetails.status'
+                  readonly
+                  >
+              </div>
+          </div>
+
+           <div class="col-md-6 offset-md-4">
+               <button type="submit" class="btn btn-primary" (click) = 'update()'>
+               Update
+               </button>
+
+           </div>
+                  </div>
+              </div>
+      </div>
+  </div>
