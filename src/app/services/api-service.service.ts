@@ -73,7 +73,7 @@ export class ApiServiceService {
       ID: user.ID,
       Username: user.Username,
       First_Name: user.First_Name,
-      Last_Name: user.Last_Login,
+      Last_Name: user.Last_Name,
       Cell_Number: user.Cell_Number,
       Home_Address: user.Home_Address,
       Created: user.Created,
