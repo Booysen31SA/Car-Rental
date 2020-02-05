@@ -1,7 +1,9 @@
 <app-top-bar></app-top-bar>
 
+<pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
 <div class="row">
-  <div class="col-sm-5 c" *ngFor="let approveList of approveList">
+  <div class="col-sm-5 c" *ngFor="let approveList of approveList | paginate: { itemsPerPage: 4, currentPage: p }">
 <div class="card">
   <div class="card-header">
     {{approveList.First_Name | uppercase}} {{ approveList.Last_Name | uppercase }}
