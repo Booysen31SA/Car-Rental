@@ -80,9 +80,9 @@ export class ApproveComponent implements OnInit {
     );
 
     this.api.decline(ID, Username) .subscribe(( data: any ) => {
-      this.Get_PendingList();
       if (data.success) {
         Swal.close();
+        this.Get_PendingList();
       } else {
         Swal.close();
         Swal.fire(
