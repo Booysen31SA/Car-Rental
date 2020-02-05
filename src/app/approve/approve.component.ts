@@ -48,11 +48,8 @@ export class ApproveComponent implements OnInit {
   );
     this.api.approve(ID, Username) .subscribe(( data: any ) => {
       if (data.success) {
+        this.Get_PendingList();
         Swal.close();
-        Swal.fire(
-          'Success!',
-          data.message
-        );
       } else {
         Swal.close();
         Swal.fire(
@@ -83,16 +80,11 @@ export class ApproveComponent implements OnInit {
     );
 
     this.api.decline(ID, Username) .subscribe(( data: any ) => {
+      this.Get_PendingList();
       if (data.success) {
         Swal.close();
-        this.Get_PendingList();
-        Swal.fire(
-          'Success!',
-          data.message
-        );
       } else {
         Swal.close();
-        this.Get_PendingList();
         Swal.fire(
           'Failed!',
            data.message
