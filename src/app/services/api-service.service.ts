@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Customer } from '../models/Customer';
 import { Vehicle } from '../models/Vehicle';
+import { Session } from 'protractor';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +43,44 @@ export class ApiServiceService {
       this.showMenu = true;
       return this.showMenu;
     }
+  }
+
+  // ================================================================
+  //                       Users
+  // ================================================================
+  approve(ID: any, username: any) {
+    const body = JSON.stringify({
+      Username: username,
+      UserID : ID
+    });
+    return this.http.post(this.url + '/user/Approve', body);
+  }
+
+  decline(ID: any, username: any) {
+    const body = JSON.stringify({
+      Username : username,
+      UserID : ID,
+    });
+    return this.http.post(this.url + '/user/Decline', body);
+  }
+
+  details() {
+    return this.http.get(this.url + '/user/details/' + sessionStorage.getItem('Username'));
+  }
+
+  update(user: User) {
+    const body = JSON.stringify({
+      ID: user.ID,
+      Username: user.Username,
+      First_Name: user.First_Name,
+      Last_Name: user.Last_Name,
+      Cell_Number: user.Cell_Number,
+      Home_Address: user.Home_Address,
+      Created: user.Created,
+      Last_Login: user.Last_Login,
+      status: user.status
+    });
+    return this.http.post(this.url + '/user/' + sessionStorage.getItem('Username'), body);
   }
 
   // ================================================================
@@ -174,5 +214,8 @@ export class ApiServiceService {
   }
   car_sales_category() {
     return this.http.get(this.url + '/car_sales_category');
+  }
+  Get_PendingList() {
+    return this.http.get(this.url + '/Get_PendingList');
   }
 }

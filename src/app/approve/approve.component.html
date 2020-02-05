@@ -1,0 +1,27 @@
+<app-top-bar></app-top-bar>
+
+<pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+
+<div class="row">
+  <div class="col-sm-5 c" *ngFor="let approveList of approveList | paginate: { itemsPerPage: 4, currentPage: p }">
+<div class="card">
+  <div class="card-header">
+    {{approveList.First_Name | uppercase}} {{ approveList.Last_Name | uppercase }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">User Details</h5>
+    <label class="card-text">User ID      - {{ approveList.ID }}</label><br>
+    <label class="card-text">Username     - {{ approveList.Username }}</label><br>
+    <label class="card-text">Cell Number  - {{ approveList.Cell_Number }}</label><br>
+    <label class="card-text">Home Address - {{ approveList.Home_Address }}</label><br>
+    <label class="card-text">Created On   - {{ approveList.Created }}</label><br>
+    <label class="card-text">status       - {{ approveList.status }}</label><br>
+  </div>
+  <div class="card-footer text-muted">
+    {{ approveList.DateDiff }} days ago
+    <a class="btn btn-primary" style="float: right;margin-left: 1%;color: white;" (click)='approve(approveList.ID, approveList.Username)'>Approve</a>
+    <a class="btn btn-danger" style="float: right;color: white;" (click)='decline(approveList.ID, approveList.Username)'>Decline</a>
+  </div>
+</div>
+</div>
+</div>
